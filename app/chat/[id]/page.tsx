@@ -108,7 +108,7 @@ useEffect(() => {
 
   return (
     <main className="h-screen bg-black text-white flex">
-      <div className="w-72 border-r border-slate-800 flex flex-col">
+      <div className="hidden md:flex w-72 border-r border-slate-800 flex-col">
         <div className="p-5 border-b border-slate-800">
           <h1 className="text-2xl font-bold text-cyan-400">
             BrainFlow
@@ -125,7 +125,11 @@ useEffect(() => {
             + New Chat
           </button>
         </div>
-
+            <div className="md:hidden p-3 border-b border-slate-800">
+  <button className="text-cyan-400 text-2xl">
+    ☰
+  </button>
+</div>
         <div className="flex-1 overflow-y-auto px-3">
           <h2 className="text-sm text-slate-400 mb-3">
             Recent Chats
@@ -152,7 +156,7 @@ useEffect(() => {
 
       <div className="flex-1 flex flex-col">
         <div className="flex-1 overflow-y-auto">
-          <div className="max-w-5xl mx-auto px-6 py-8 space-y-6">
+          <div className="max-w-5xl mx-auto px-3 md:px-6 py-4 md:py-8 space-y-6">
             {messages.map((msg, index) => (
               <div
                 key={index}
@@ -163,7 +167,7 @@ useEffect(() => {
                 }`}
               >
                 <div
-                  className={`max-w-[80%] px-5 py-4 rounded-3xl ${
+                  className={`max-w-[92%] md:max-w-[80%] px-4 md:px-5 py-3 md:py-4 rounded-3xl ${
                     msg.role === "user"
                       ? "bg-cyan-500 text-black"
                       : "bg-slate-900 border border-slate-800"
@@ -182,24 +186,24 @@ useEffect(() => {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 p-4">
+        <div className="border-t border-slate-800 p-2 md:p-4">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               sendMessage();
             }}
-            className="max-w-5xl mx-auto flex gap-3"
+            className="max-w-5xl mx-auto flex gap-2 md:gap-3 w-full"
           >
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Message BrainFlow..."
-              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 outline-none"
+              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 md:px-4 py-3 outline-none text-sm md:text-base"
             />
 
             <button
               type="submit"
-              className="bg-cyan-500 text-black px-6 rounded-xl font-bold"
+              className="bg-cyan-500 text-black px-4 md:px-6 rounded-xl font-bold whitespace-nowrap"
             >
               Send
             </button>
