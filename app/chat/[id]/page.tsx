@@ -124,19 +124,20 @@ useEffect(() => {
     md:translate-x-0
   `}
 >
-        <div className="md:hidden flex justify-end p-4">
-  <button
-    onClick={() => setSidebarOpen(false)}
-    className="text-2xl"
-  >
-    ✕
-  </button>
-</div>
-          <h1 className="text-2xl font-bold text-cyan-400">
-            BrainFlow
-          </h1>
-        </div>
+      <div className="p-5 border-b border-slate-800">
+  <div className="md:hidden flex justify-end mb-3">
+    <button
+      onClick={() => setSidebarOpen(false)}
+      className="text-2xl"
+    >
+      ✕
+    </button>
+  </div>
 
+  <h1 className="text-2xl font-bold text-cyan-400">
+    BrainFlow
+  </h1>
+</div>
         <div className="p-4">
           <button
             className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-3 rounded-xl"
