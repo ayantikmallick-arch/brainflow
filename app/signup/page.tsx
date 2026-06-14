@@ -63,7 +63,9 @@ export default function SignUpPage() {
         />
 
       </div>
-
+<div className="text-center text-xs text-slate-500 py-3">
+  Built by Ayantik Mallick
+</div>
     </main>
   );
 }   
