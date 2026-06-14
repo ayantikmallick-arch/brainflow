@@ -12,6 +12,7 @@ export default function ChatRoom() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 type Chat = {
   id: string;
   title: string;
@@ -108,8 +109,29 @@ useEffect(() => {
 
   return (
     <main className="h-screen bg-black text-white flex">
-      <div className="hidden md:flex w-72 border-r border-slate-800 flex-col">
-        <div className="p-5 border-b border-slate-800">
+  <button
+    onClick={() => setSidebarOpen(true)}
+    className="md:hidden fixed top-4 left-4 z-50 bg-slate-900 px-3 py-2 rounded-lg"
+  >
+    ☰
+  </button>
+      <div
+  className={`
+    fixed md:static top-0 left-0 h-full w-72
+    bg-black border-r border-slate-800 flex flex-col
+    transform transition-transform duration-300 z-40
+    ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+    md:translate-x-0
+  `}
+>
+        <div className="md:hidden flex justify-end p-4">
+  <button
+    onClick={() => setSidebarOpen(false)}
+    className="text-2xl"
+  >
+    ✕
+  </button>
+</div>
           <h1 className="text-2xl font-bold text-cyan-400">
             BrainFlow
           </h1>
@@ -125,11 +147,7 @@ useEffect(() => {
             + New Chat
           </button>
         </div>
-            <div className="md:hidden p-3 border-b border-slate-800">
-  <button className="text-cyan-400 text-2xl">
-    ☰
-  </button>
-</div>
+            
         <div className="flex-1 overflow-y-auto px-3">
           <h2 className="text-sm text-slate-400 mb-3">
             Recent Chats

@@ -16,10 +16,9 @@ export default function Home() {
             className="rounded-full object-contain"
           />
         </div>
-
-        <h1 className="text-8xl font-black mt-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-          BrainFlow
-        </h1>
+<h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
+  BrainFlow
+</h1>
 
         <p className="mt-5 text-xl text-slate-300 max-w-3xl">
           Your next-generation AI assistant for learning, coding,
